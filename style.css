@@ -1,118 +1,268 @@
-/* Basic page styling */
-body {
+
+/* GENERAL STYLING */
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #020617;
-    color: #f8fafc;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Main application */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #090d1b;
+    color: white;
+}
+
 .app {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     min-height: 100vh;
 }
 
-/* Navigation bar */
+
+/* NAVIGATION BAR */
+
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 22px;
-    background: #0f172a;
+    padding: 22px 7%;
+    background-color: #11182b;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    color: #38bdf8;
+    color: white;
+}
+
+.logo span {
+    color: #9b7bff;
 }
 
 .links {
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
-.nav a {
-    color: #cbd5e1;
+.links a {
+    color: #d5d8e5;
     text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
 }
 
-.nav a:hover {
-    color: #ffffff;
+.links a:hover {
+    color: #a78bfa;
 }
 
-/* Featured banner */
+
+/* FEATURED BANNER */
+
 .banner {
-    padding: 60px 28px;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    padding: 60px 7%;
+
     background: linear-gradient(
-        135deg,
-        #4f46e5,
-        #0f172a
+        90deg,
+        #17143c,
+        #352568,
+        #11182b
     );
+
+    border-bottom: 1px solid #292c48;
 }
+
+.banner-content {
+    max-width: 650px;
+}
+
+.tagline {
+    color: #b9a5ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* Less specific selector */
 
 h1 {
-    color: #0f172a;
+    color: white;
+    font-size: 35px;
 }
+
+/* More specific selector wins */
 
 .banner .title {
-    color: #ffffff;
-    font-size: 42px;
+    color: #b69aff;
+    font-size: 58px;
+    margin-bottom: 18px;
 }
 
-.banner p {
-    font-size: 18px;
-    max-width: 500px;
-    line-height: 1.6;
-}
-
-.banner button {
-    background: #ffffff;
-    color: #0f172a;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
+.description {
+    color: #d0cce0;
     font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.play-btn {
+    background-color: #9270f5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 13px 25px;
+    font-size: 15px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.banner button:hover {
-    background: #38bdf8;
+.play-btn:hover {
+    background-color: #7652df;
+    transform: scale(1.05);
 }
 
-/* Show cards */
-.cards {
+
+/* TRENDING SHOWS */
+
+.shows-section {
+    padding: 45px 7%;
+}
+
+.shows-section h2 {
+    font-size: 26px;
+    margin-bottom: 28px;
+    color: white;
+}
+
+.shows {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    padding: 22px;
+    gap: 25px;
 }
+
+
+/* SHOW CARDS */
 
 .card {
-    flex: 1 1 160px;
     position: relative;
-    min-height: 120px;
-    background: #1e293b;
-    color: #e2e8f0;
-    border-radius: 10px;
-    padding: 14px;
-    transition: transform 0.15s ease;
+    width: 220px;
+    background-color: #171e32;
+    border: 1px solid #29314b;
+    border-radius: 12px;
+    padding: 10px;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        border-color 0.3s;
 }
+
+
+/* CARD HOVER EFFECT */
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(100, 75, 200, 0.35);
+    border-color: #9b7bff;
 }
 
-/* NEW badge */
+
+/* REAL POSTER IMAGES */
+
+.poster {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.card:hover .poster {
+    transform: scale(1.03);
+}
+
+
+/* CARD INFORMATION */
+
+.card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.card p {
+    color: #a5aec4;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+
+/* NEW BADGE - ATTRIBUTE SELECTOR */
+
 .card[data-new="true"]::after {
     content: "NEW";
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #16a34a;
-    color: #ffffff;
-    font-size: 0.65rem;
-    padding: 2px 6px;
+    top: 18px;
+    right: 18px;
+
+    background-color: #a78bfa;
+    color: #11182b;
+
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 10px;
     border-radius: 4px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #11182b;
+    color: #929bb2;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 650px) {
+
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner {
+        padding: 45px 6%;
+    }
+
+    .banner .title {
+        font-size: 40px;
+    }
+
+    .shows {
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 280px;
+    }
+
 }

@@ -1,11 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CineWave - Streaming Platform</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,55 +13,94 @@
 
     <div class="app">
 
-        <!-- Navigation Bar -->
+        <!-- Navigation -->
         <nav class="nav">
-
-            <div class="logo">CineWave</div>
+            <div class="logo">CineWave<span>.</span></div>
 
             <div class="links">
                 <a href="#">Home</a>
-                <a href="#">Shows</a>
+                <a href="#shows">Shows</a>
+                <a href="#">Movies</a>
                 <a href="#">Sign In</a>
             </div>
-
         </nav>
 
-
         <!-- Featured Banner -->
-        <header class="banner">
+        <section class="banner">
+            <div class="banner-content">
 
-            <h1 class="title">Neon Skyline</h1>
+                <p class="tagline">CINEWAVE ORIGINAL</p>
 
-            <p>
-                A detective chases a mysterious signal
-                through a sleepless city.
-            </p>
+                <h1 class="title">Neon Skyline</h1>
 
-            <button>▶ Play</button>
+                <p class="description">
+                    A thrilling journey through a futuristic city
+                    where one secret can change everything.
+                </p>
 
-        </header>
+                <button class="play-btn">▶ Play Now</button>
 
-
-        <!-- Show Cards -->
-        <section class="cards">
-
-            <article class="card" data-new="true">
-                Cinderwood
-            </article>
-
-            <article class="card">
-                Deep Harbor
-            </article>
-
-            <article class="card" data-new="true">
-                Paper Moons
-            </article>
-
-            <article class="card">
-                Low Tide
-            </article>
-
+            </div>
         </section>
+
+        <!-- Trending Shows -->
+        <section class="shows-section" id="shows">
+
+            <h2>Trending This Week</h2>
+
+            <div class="shows">
+
+                <!-- Show 1 -->
+                <div class="card" data-new="true">
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=500"
+                        alt="Night sky poster">
+
+                    <h3>Shadow Mission</h3>
+                    <p>Action • Thriller</p>
+                </div>
+
+                <!-- Show 2 -->
+                <div class="card" data-new="true">
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500"
+                        alt="Earth from space poster">
+
+                    <h3>Beyond Earth</h3>
+                    <p>Sci-Fi • Adventure</p>
+                </div>
+
+                <!-- Show 3 -->
+                <div class="card">
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500"
+                        alt="Cinema film poster">
+
+                    <h3>Hidden Truth</h3>
+                    <p>Mystery • Drama</p>
+                </div>
+
+                <!-- Show 4 -->
+                <div class="card">
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500"
+                        alt="Nature adventure poster">
+
+                    <h3>Ocean Kingdom</h3>
+                    <p>Fantasy • Adventure</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 CineWave. All rights reserved.</p>
+        </footer>
 
     </div>
 
