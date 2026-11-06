@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineWave - Streaming Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- NAVIGATION BAR -->
+        <nav class="nav">
+            <div class="logo">CineWave<span>.</span></div>
+
+            <div class="links">
+                <a href="#">Home</a>
+                <a href="#shows">Shows</a>
+                <a href="#genres">Genres</a>
+                <a href="#shows">Movies</a>
+                <a href="#signin">Sign In</a>
+            </div>
+        </nav>
+
+        <!-- FEATURED BANNER -->
+        <section class="banner">
+            <div class="banner-content">
+
+                <p class="tagline">CINEWAVE ORIGINAL</p>
+
+                <h1 class="title">Neon Skyline</h1>
+
+                <p class="description">
+                    A thrilling journey through a futuristic city
+                    where one secret can change everything.
+                </p>
+
+                <button class="play-btn" type="button">▶ Play Now</button>
+
+            </div>
+        </section>
+
+        <!-- GENRE FILTER SECTION -->
+        <section class="genre-section" id="genres">
+
+            <h2>Explore Genres</h2>
+
+            <div class="genre-filters">
+
+                <button class="genre-btn" data-genre="all" data-active="true">All</button>
+                <button class="genre-btn" data-genre="action">Action</button>
+                <button class="genre-btn" data-genre="comedy">Comedy</button>
+                <button class="genre-btn" data-genre="drama">Drama</button>
+                <button class="genre-btn" data-genre="sci-fi">Sci-Fi</button>
+                <button class="genre-btn" data-genre="adventure">Adventure</button>
+
+            </div>
+        </section>
+
+        <!-- TRENDING SHOWS -->
+        <section class="shows-section" id="shows">
+
+            <h2>Trending This Week</h2>
+
+            <div class="shows">
+
+                <!-- SHOW 1 -->
+                <div class="card" data-new="true" data-genres="action thriller">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=500"
+                        alt="Night sky poster">
+
+                    <h3>Shadow Mission</h3>
+                    <p>Action • Thriller</p>
+
+                </div>
+
+                <!-- SHOW 2 -->
+                <div class="card" data-new="true" data-genres="sci-fi adventure">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500"
+                        alt="Earth from space poster">
+
+                    <h3>Beyond Earth</h3>
+                    <p>Sci-Fi • Adventure</p>
+
+                </div>
+
+                <!-- SHOW 3 -->
+                <div class="card" data-genres="mystery drama">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500"
+                        alt="Cinema film poster">
+
+                    <h3>Hidden Truth</h3>
+                    <p>Mystery • Drama</p>
+
+                </div>
+
+                <!-- SHOW 4 -->
+                <div class="card" data-genres="fantasy adventure">
+
+                    <img
+                        class="poster"
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500"
+                        alt="Nature adventure poster">
+
+                    <h3>Ocean Kingdom</h3>
+                    <p>Fantasy • Adventure</p>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 CineWave. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- GENRE FILTER JAVASCRIPT -->
+    <script>
+
+        const genreButtons = document.querySelectorAll(".genre-btn");
+        const showCards = document.querySelectorAll(".card");
+
+        genreButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const selectedGenre = button.dataset.genre;
+
+                // Update active button colour
+                genreButtons.forEach(btn => {
+                    btn.dataset.active = "false";
+                });
+
+                button.dataset.active = "true";
+
+                // Filter show cards
+                showCards.forEach(card => {
+
+                    const genres = card.dataset.genres.split(" ");
+
+                    if (
+                        selectedGenre === "all" ||
+                        genres.includes(selectedGenre)
+                    ) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
