@@ -1,4 +1,4 @@
-
+d
 /* =====================================
    GENERAL STYLING
 ===================================== */
@@ -93,15 +93,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* General heading style */
-
 h1 {
     color: white;
     font-size: 35px;
 }
 
-/* More specific selector wins intentionally */
-
+/* Deliberate CSS cascade example */
 .banner .title {
     color: #b69aff;
     font-size: 58px;
@@ -124,7 +121,7 @@ h1 {
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .play-btn:hover {
@@ -170,8 +167,7 @@ h1 {
     color: white;
 }
 
-/* Attribute selector: active genre */
-
+/* Active genre button */
 .genre-btn[data-active="true"] {
     background-color: #9270f5;
     color: white;
@@ -206,11 +202,11 @@ h1 {
 
 .card {
     position: relative;
-    width: 220px;
+    width: 275px;
     background-color: #171e32;
     border: 1px solid #29314b;
     border-radius: 12px;
-    padding: 10px;
+    padding: 12px;
 
     transition:
         transform 0.3s,
@@ -219,7 +215,6 @@ h1 {
 }
 
 /* Card hover effect */
-
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(100, 75, 200, 0.35);

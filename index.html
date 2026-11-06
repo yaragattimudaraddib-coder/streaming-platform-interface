@@ -21,14 +21,13 @@
                 <a href="#">Home</a>
                 <a href="#shows">Shows</a>
                 <a href="#genres">Genres</a>
-                <a href="#">Movies</a>
-                <a href="#">Sign In</a>
+                <a href="#shows">Movies</a>
+                <a href="#signin">Sign In</a>
             </div>
         </nav>
 
         <!-- FEATURED BANNER -->
         <section class="banner">
-
             <div class="banner-content">
 
                 <p class="tagline">CINEWAVE ORIGINAL</p>
@@ -40,10 +39,9 @@
                     where one secret can change everything.
                 </p>
 
-                <button class="play-btn">▶ Play Now</button>
+                <button class="play-btn" type="button">▶ Play Now</button>
 
             </div>
-
         </section>
 
         <!-- GENRE FILTER SECTION -->
@@ -53,15 +51,14 @@
 
             <div class="genre-filters">
 
-                <button class="genre-btn" data-active="true">All</button>
-                <button class="genre-btn">Action</button>
-                <button class="genre-btn">Comedy</button>
-                <button class="genre-btn">Drama</button>
-                <button class="genre-btn">Sci-Fi</button>
-                <button class="genre-btn">Adventure</button>
+                <button class="genre-btn" data-genre="all" data-active="true">All</button>
+                <button class="genre-btn" data-genre="action">Action</button>
+                <button class="genre-btn" data-genre="comedy">Comedy</button>
+                <button class="genre-btn" data-genre="drama">Drama</button>
+                <button class="genre-btn" data-genre="sci-fi">Sci-Fi</button>
+                <button class="genre-btn" data-genre="adventure">Adventure</button>
 
             </div>
-
         </section>
 
         <!-- TRENDING SHOWS -->
@@ -72,7 +69,7 @@
             <div class="shows">
 
                 <!-- SHOW 1 -->
-                <div class="card" data-new="true">
+                <div class="card" data-new="true" data-genres="action thriller">
 
                     <img
                         class="poster"
@@ -85,7 +82,7 @@
                 </div>
 
                 <!-- SHOW 2 -->
-                <div class="card" data-new="true">
+                <div class="card" data-new="true" data-genres="sci-fi adventure">
 
                     <img
                         class="poster"
@@ -98,7 +95,7 @@
                 </div>
 
                 <!-- SHOW 3 -->
-                <div class="card">
+                <div class="card" data-genres="mystery drama">
 
                     <img
                         class="poster"
@@ -111,7 +108,7 @@
                 </div>
 
                 <!-- SHOW 4 -->
-                <div class="card">
+                <div class="card" data-genres="fantasy adventure">
 
                     <img
                         class="poster"
@@ -124,7 +121,6 @@
                 </div>
 
             </div>
-
         </section>
 
         <!-- FOOTER -->
@@ -133,6 +129,47 @@
         </footer>
 
     </div>
+
+    <!-- GENRE FILTER JAVASCRIPT -->
+    <script>
+
+        const genreButtons = document.querySelectorAll(".genre-btn");
+        const showCards = document.querySelectorAll(".card");
+
+        genreButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const selectedGenre = button.dataset.genre;
+
+                // Update active button colour
+                genreButtons.forEach(btn => {
+                    btn.dataset.active = "false";
+                });
+
+                button.dataset.active = "true";
+
+                // Filter show cards
+                showCards.forEach(card => {
+
+                    const genres = card.dataset.genres.split(" ");
+
+                    if (
+                        selectedGenre === "all" ||
+                        genres.includes(selectedGenre)
+                    ) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>
